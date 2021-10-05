@@ -20,7 +20,7 @@ function App() {
   const [textValue, setTextValue] =useState("");
 
   const handleTaskChange =(index) =>() =>{
-    console.log("changed!"+ index)
+    console.log("changed!"+ index);
     const arr = [...tasks];
     arr[index].isCompleted= !arr[index].isCompleted;
     setTasks(arr); 
@@ -31,7 +31,7 @@ function App() {
       isCompleted = false,
       name = name,
     };
-    setTasks([...tasks, newTask])
+    setTasks([...tasks, newTask]);
   }
 
   const handlesubmit= (event)=>{
