@@ -8,7 +8,7 @@ function App() {
     name:"Learn React",
   },
   {
-    isCompleted:true,
+    isCompleted:false,
     name:"Learn Hooks",
   },
   {
@@ -29,9 +29,13 @@ function App() {
           <button>Create Task</button>
         </form>
         <ul>
-          <TaskItem isChecked={true} taskName="Learn React" onTaskChange={handleTaskChange}/>
-          <TaskItem isChecked={false} taskName="Lear Hooks" onTaskChange={handleTaskChange}/>
-          <TaskItem isChecked={true} taskName="Keep on Keeping on" onTaskChange={handleTaskChange}/>
+          {task.map(task =>{
+            return (
+            <TaskItem isChecked={task.isCompleted}
+             taskName={task.name}
+             onTaskChange={handleTaskChange}/>
+            )
+          })}
         </ul>
     </main>
   );
