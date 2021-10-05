@@ -2,7 +2,7 @@ import {useState} from "react";
 import {TaskItem} from "./Taskitems";
 
 function App() {
-  const [task, setTasks] = useState([
+  const [tasks, setTasks] = useState([
     {
     isCompleted:true,
     name:"Learn React",
@@ -17,23 +17,44 @@ function App() {
   },
   ]);
 
+  const [textValue, setTextValue] =useState("");
 
-  const handleTaskChange =()=>{
-    console.log("changed!")
+  const handleTaskChange =(index) =>() =>{
+    console.log("changed!"+ index)
+    const arr = [...tasks];
+    arr[index].isCompleted= !arr[index].isCompleted;
+    setTasks(arr); 
+  };
+
+  const addTask = (name) =>{
+    const newTask = {
+      isCompleted = false,
+      name = name,
+    };
+    setTasks([...tasks, newTask])
   }
 
+  const handlesubmit= (event)=>{
+    event.preventDefault();
+    console.log(textValue);
+    addTask(textValue);
+  };
+  const HandletextChange =(event) =>{
+    const value =event.target.value;
+    setTextValue(value);
+  };
   return(
     <main>
-        <form>
-          <input type="text" placeholder="Task me"/>
+        <form onSubmit={handlesubmit}>
+          <input value={textValue} onChange={HandletextChange} type="text" placeholder="Task me"/>
           <button>Create Task</button>
         </form>
         <ul>
-          {task.map(task =>{
+          {task.map(tasks, index =>{
             return (
-            <TaskItem isChecked={task.isCompleted}
-             taskName={task.name}
-             onTaskChange={handleTaskChange}/>
+            <TaskItem isChecked={tasks.isCompleted}
+             taskName={tasks.name}
+             onTaskChange={handleTaskChange(index)}/>
             )
           })}
         </ul>
