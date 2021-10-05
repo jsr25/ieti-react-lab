@@ -51,12 +51,12 @@ function App() {
           <button>Create Task</button>
         </form>
         <ul>
-          {task.map(tasks, index =>{
+          {tasks.map((tasks, index) =>{
             return (
             <TaskItem isChecked={tasks.isCompleted}
              taskName={tasks.name}
              onTaskChange={handleTaskChange(index)}/>
-            )
+            );
           })}
         </ul>
     </main>
