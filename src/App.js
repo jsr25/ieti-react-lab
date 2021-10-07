@@ -28,8 +28,8 @@ function App() {
 
   const addTask = (name) =>{
     const newTask = {
-      isCompleted = false,
-      name = name,
+      isCompleted : false,
+      name : name,
     };
     setTasks([...tasks, newTask]);
   }
