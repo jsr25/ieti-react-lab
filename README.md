@@ -1,5 +1,9 @@
 # Getting Started with Create React App
 
+Integrantes:
+ * Guillermo Alfonso Castro Camelo
+ * Juan Sebastian Ramos Isaza 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
